@@ -7,7 +7,7 @@ export interface ICPForm_Success {
 }
 
 export const Form_Success: React.FC<ICPForm_Success> = () => {
-  const [{ amountReceived, nearTransactionHash }, { toAddress }] = AppStore.useState(
+  const [{amountReceived, nearTransactionHash}, {toAddress}] = AppStore.useState(
     (s) => [s.success!, s.formInputs] as const,
   );
 
@@ -17,7 +17,7 @@ export const Form_Success: React.FC<ICPForm_Success> = () => {
         SUCCESS
       </Heading>
       <Flex direction={"column"} gap={"0.5em"}>
-        <Text fontSize={"2em"}>106.965 NEAR</Text>
+        <Text fontSize={"2em"}>{amountReceived} NEAR</Text>
         <Text fontSize={"0.8em"}>Sent to account</Text>
         <Text fontSize={"2em"} wordBreak={"break-word"}>
           {toAddress}

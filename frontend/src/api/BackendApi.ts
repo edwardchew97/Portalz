@@ -6,7 +6,8 @@ interface IBackendResponse<R> {
   response: R;
 }
 
-let baseBackendUrl = "http://192.168.43.28:3000";
+// let baseBackendUrl = "http://192.168.43.28:3000";
+let baseBackendUrl = "https://portalz-backend.onrender.com";
 
 interface IExecuteRequest {
   path: string;
@@ -14,7 +15,7 @@ interface IExecuteRequest {
   method?: "POST" | "GET";
 }
 
-async function executeRequest<R>({ path, body, method = "POST" }: IExecuteRequest): Promise<R> {
+async function executeRequest<R>({path, body, method = "POST"}: IExecuteRequest): Promise<R> {
   const response: IBackendResponse<R> = await fetch(`${baseBackendUrl}/${path}`, {
     method,
     body: JSON.stringify(body),
@@ -47,7 +48,7 @@ export interface IOCreateOrder_Output {
 }
 
 async function createOrder(inputs: IOCreateOrder_Input): Promise<IOCreateOrder_Output> {
-  return executeRequest({ path: "orders/create", body: inputs });
+  return executeRequest({path: "orders/create", body: inputs});
 }
 
 export interface IOVerifyOrder_Input {
@@ -55,7 +56,7 @@ export interface IOVerifyOrder_Input {
 }
 
 async function verifyOrder(inputs: IOVerifyOrder_Input): Promise<IOCreateOrder_Output> {
-  return executeRequest({ path: "orders/verify", body: inputs });
+  return executeRequest({path: "orders/verify", body: inputs});
 }
 
 export const BackendApi = {

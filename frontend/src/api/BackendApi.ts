@@ -7,8 +7,8 @@ interface IBackendResponse<R> {
 }
 
 // let baseBackendUrl = "http://192.168.43.28:3000";
-// let baseBackendUrl = "https://portalz-backend.onrender.com";
-let baseBackendUrl = "http://localhost:3000";
+let baseBackendUrl = "https://portalz-backend.onrender.com";
+// let baseBackendUrl = "http://localhost:3000";
 
 interface IExecuteRequest {
   path: string;

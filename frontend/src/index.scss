@@ -1,0 +1,385 @@
+/**************************************************************************************
+
+                                        FONT FAMILY
+
+**************************************************************************************/
+
+
+@font-face {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/Gilroy-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./assets/fonts/Gilroy-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-style: bold;
+  font-weight: 700;
+  src: url("./assets/fonts/Gilroy-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-style: black;
+  font-weight: 800;
+  src: url("./assets/fonts/Gilroy-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-style: black;
+  font-weight: 900;
+  src: url("./assets/fonts/Gilroy-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-style: thin;
+  font-weight: 300;
+  src: url("./assets/fonts/Gilroy-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-style: light;
+  font-weight: 100;
+  src: url("./assets/fonts/Gilroy-Light.ttf") format("truetype");
+}
+
+
+/**************************************************************************************
+
+                                        THEME
+
+**************************************************************************************/
+
+:root {
+  --background-color: #01000a;
+  --font-color: #ffffff;
+  --primary-color: #5917dd;
+  --secondary-color: #1a0d3a;
+  --disabled-color: #293033;
+}
+
+
+/**************************************************************************************
+
+                                        GENERAL
+
+**************************************************************************************/
+
+
+body {
+  background: var(--background-color);
+  color: var(--font-color);
+  font-family: 'Gilroy', sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 70VW;
+  margin: 0 auto;
+  padding: 0px 30px;
+  margin-top: 5vh;
+}
+
+
+input {
+  box-sizing: border-box;
+}
+
+
+/**************************************************************************************
+
+                                        NAV
+
+**************************************************************************************/
+
+
+#topNav img {
+  width: 140px;
+}
+
+
+/**************************************************************************************
+
+                                        FORM
+
+**************************************************************************************/
+
+
+#imageWrapperContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+#imageWrapper {
+  display: flex;
+  margin-top: 10vh;
+  height: 75vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#imageWrapper #homeImage {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -4;
+  text-align: right;
+}
+
+#homeImage img {
+  width: 100%;
+  animation: skew 35s infinite;
+  opacity: 0.8;
+}
+
+#homeContent {
+  min-width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+}
+
+#circle1 {
+  position: fixed;
+  bottom: -120px;
+  width: 150px;
+  right: 80px;
+  animation: circle3 8s infinite;
+  filter: blur(10px)
+}
+
+#circle2 {
+  position: absolute;
+  right: 10vw;
+  top: 30vh;
+  opacity: 0.5;
+  width: 20px;
+  animation: circle2 15s infinite;
+}
+
+#circle3 {
+  position: absolute;
+  top: 68vh;
+  left: 10vw;
+  width: 30px;
+  animation: circle1 8s infinite;
+
+}
+
+#formContentTitle {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+
+#formContentTitle h1 {
+  font-weight: 800;
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
+#formContentTitle p {
+  font-size: 14px;
+
+}
+
+#formContentInput {
+  width: 450px;
+  margin: auto;
+}
+
+.formControl p {
+  //font-size: 13px;
+  opacity: 0.8;
+}
+
+.formControl {
+  text-align: left;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.formControl select, .formControl input {
+  width: 100%;
+  background: linear-gradient(45deg, #311a65, transparent);
+  padding: 10px 15px;
+  font-size: 14px;
+  //font-weight: 500;
+  border-radius: 6px;
+  color: var(--font-color);
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+select option {
+  color: #333;
+}
+
+select option:disabled {
+  color: #999;
+}
+
+.formControl input:disabled {
+  background: linear-gradient(45deg, #140830, transparent);
+}
+
+#formSubmitButton {
+  background-color: var(--primary-color);
+  margin-top: 15px;
+  color: white;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  width: 100%;
+  transition: 0.4s all;
+  border: none;
+}
+
+#formSubmitButton:disabled {
+  background-color: var(--disabled-color);
+  color: gray;
+}
+
+#formSubmitButton:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 15px rgb(67, 38, 155);
+  transform: scale(0.98);
+
+  &:disabled {
+    cursor: default;
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
+
+.flexControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#exchangeSvg {
+  font-size: 48px;
+  padding: 15px;
+}
+
+/**************************************************************************************
+
+                                    COMPLETE MODAL
+
+**************************************************************************************/
+
+
+/**************************************************************************************
+
+                                        RESPONSIVE
+
+**************************************************************************************/
+
+
+@media only screen and (max-width: 859px) {
+
+}
+
+
+/**************************************************************************************
+
+                                    ANIMATION
+
+**************************************************************************************/
+
+
+@keyframes circle1 {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-5px);
+  }
+  40% {
+    transform: translateY(-3px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+  80% {
+    transform: translateY(5px);
+  }
+}
+
+
+@keyframes circle2 {
+  0%, 100% {
+    transform: translateY(0) translateX(0px);
+  }
+  20% {
+    transform: translateY(-5px) translateX(15px);
+  }
+  40% {
+    transform: translateY(-3px) translateX(10px);
+  }
+  60% {
+    transform: translateY(-10px) translateX(-15px);
+  }
+  80% {
+    transform: translateY(5px) translateX(2px);
+  }
+}
+
+@keyframes circle3 {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-8px);
+  }
+  40% {
+    transform: translateY(3px);
+  }
+  60% {
+    transform: translateY(10px);
+  }
+  80% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes skew {
+  0% {
+    transform: skew(0deg, 0deg);
+  }
+  30% {
+    transform: skew(-25deg, 5deg);
+  }
+  55% {
+    transform: skew(10deg, 10deg);
+  }
+  80% {
+    transform: skew(20deg, -10deg);
+  }
+  100% {
+    transform: skew(0deg, 0deg);
+  }
+}

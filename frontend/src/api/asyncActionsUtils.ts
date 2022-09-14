@@ -25,6 +25,7 @@ export function createAsyncActionWithErrors<I, O, T extends string = string>(
       const resp = await asyncMethod(inputs, store);
       return successResult(resp);
     } catch (e: any) {
+      console.error(e);
       if (e instanceof PortalzError) {
         return errorResult(e.endTags as T[], e.message, e.cause);
       }

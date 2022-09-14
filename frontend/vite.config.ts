@@ -25,15 +25,17 @@ export default defineConfig({
     },
   },
   build: {
+    minify: false,
     rollupOptions: {},
     commonjsOptions: {
       include: [],
     },
-    target: ["es2020"],
+    target: "es2020",
   },
   optimizeDeps: {
     disabled: false,
     esbuildOptions: {
+      minify: false,
       // Node.js global to browser globalThis
       target: "es2020",
       define: {
@@ -43,6 +45,7 @@ export default defineConfig({
       plugins: [
         NodeGlobalsPolyfillPlugin({
           process: true,
+          buffer: true,
         }),
         NodeModulesPolyfillPlugin(),
       ],

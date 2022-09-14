@@ -55,10 +55,10 @@ export class OrdersController extends BaseController {
 		const connection = new SolWeb3.Connection('https://flashy-falling-reel.solana-mainnet.discover.quiknode.pro/d7b692d03ce370fd96f56ab891d2b11a1881595c', 'finalized')
 
 		do {
-			trx = (await connection.getParsedTransaction(verifyOrderDto.transaction_hash, 'finalized'))
+			trx = (await connection.getParsedTransaction(verifyOrderDto.transaction_hash, 'confirmed'))
 			tries++
-			sleep(3000)
-		} while (trx === null && tries < 60);
+			sleep(1000)
+		} while (trx === null && tries < 120);
 
 		const receiver = trx.transaction.message.accountKeys[1].pubkey.toString()
 		const order = await this.ordersService.findOneWithReceiverAddress(receiver)
@@ -75,7 +75,7 @@ export class OrdersController extends BaseController {
 			// Step 4: Get the rate and compute amount to send✓
 			const cryptoRate = await this.rateMachine.getRate(Crypto.SOL)
 			const nearRate = await this.rateMachine.getRate(Crypto.NEAR)
-			const amountToSend = cryptoRate / nearRate * amountReceived
+			const amountToSend = cryptoRate / nearRate * amountReceived * 0.9955
 
 			// Step 5: Send the near amount 
 			const result = await sendFund(order.to_address, amountToSend.toString())

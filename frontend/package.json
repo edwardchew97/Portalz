@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve-build": "serve ./dist"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.3.2",
